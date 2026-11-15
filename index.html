@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Goodbye, Miss Model</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f7f2f8; --ink:#33203f; --plum:#5b3a6e; --rose:#d9778f;
+  --gold:#c9a24b; --mist:#e9dff0; --card:#fffdfb;
+}
+@media (prefers-color-scheme: dark){
+  :root{--paper:#1f1427; --ink:#f1e7f5; --plum:#cdb0e0; --rose:#f08fa8; --mist:#2d1f3a; --card:#2a1c35;}
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Fraunces',Georgia,serif;font-weight:300;line-height:1.75;font-size:1.1rem}
+img,video{max-width:100%;display:block}
+.hand{font-family:'Caveat','Segoe Script',cursive;font-weight:500}
+:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+
+/* hero */
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:2rem;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse at 50% 120%,var(--mist),transparent 65%)}
+.hero p.hand{font-size:1.7rem;color:var(--rose)}
+.hero h1{font-size:clamp(3.2rem,13vw,9rem);font-weight:600;line-height:.95;letter-spacing:-.03em;color:var(--plum);margin:.6rem 0 1rem}
+.hero h1 i{font-weight:300;display:block;font-size:.5em;letter-spacing:0;color:var(--ink)}
+.hero .sub{max-width:30rem;margin:0 auto;opacity:.8}
+.beads{display:flex;justify-content:center;gap:.7rem;margin:2.2rem 0 1rem}
+.beads span{width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff9,transparent 40%),var(--c);
+  animation:swing 3.2s ease-in-out infinite;animation-delay:calc(var(--i)*.18s)}
+@keyframes swing{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.down{display:inline-block;margin-top:1.5rem;color:var(--plum);text-decoration:none;font-size:1.5rem}
+
+/* sections */
+section{padding:6rem 1.5rem}
+.wrap{max-width:46rem;margin:0 auto}
+h2{font-size:clamp(2rem,6vw,3.2rem);font-weight:600;color:var(--plum);letter-spacing:-.02em;line-height:1.1;margin-bottom:2rem}
+
+/* letter */
+.letter{background:var(--card);padding:clamp(1.8rem,6vw,4rem);border-radius:4px 28px 4px 28px;
+  box-shadow:0 30px 60px -30px rgba(91,58,110,.45);position:relative;
+  background-image:repeating-linear-gradient(transparent 0 calc(1.75em - 1px),rgba(217,119,143,.18) calc(1.75em - 1px) 1.75em)}
+.letter p{margin-bottom:1.4rem}
+.letter .to{font-size:2rem;color:var(--rose);margin-bottom:1rem}
+.letter .sign{font-size:2.2rem;color:var(--plum);text-align:right;margin:2rem 0 0}
+.letter::after{content:"";position:absolute;top:-14px;right:2rem;width:90px;height:28px;background:var(--gold);opacity:.55;transform:rotate(4deg);border-radius:2px}
+
+/* song */
+.song{text-align:center;padding-top:2rem}
+.song .hand{font-size:1.8rem;color:var(--rose);margin:-1rem 0 1.2rem}
+.song audio{width:100%;max-width:26rem}
+.song .note{font-size:.95rem;margin-top:1rem}
+.song a{color:var(--plum)}
+.vinyl{width:120px;height:120px;border-radius:50%;margin:0 auto 1.5rem;display:grid;place-items:center;
+  background:repeating-radial-gradient(circle,#2a1a35 0 3px,#3a2548 3px 5px);animation:spin 6s linear infinite}
+.vinyl b{width:42px;height:42px;border-radius:50%;background:var(--rose);box-shadow:0 0 0 6px var(--gold) inset}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.vinyl{animation:none}}
+
+/* gallery */
+.gallery{columns:3 14rem;column-gap:1.4rem;max-width:68rem;margin:0 auto}
+.snap{break-inside:avoid;margin:0 0 1.6rem;background:var(--card);padding:.7rem .7rem 1.6rem;border-radius:3px;
+  box-shadow:0 14px 30px -14px rgba(51,32,63,.5);transform:rotate(var(--r,0deg));transition:transform .3s}
+.snap:hover{transform:rotate(0) scale(1.03)}
+.snap img,.snap video{width:100%;border-radius:2px}
+.snap:nth-child(3n+1){--r:-2deg}.snap:nth-child(3n+2){--r:1.5deg}.snap:nth-child(3n){--r:-1deg}
+.snap figcaption{text-align:center;font-size:1.5rem;color:var(--plum);margin-top:.6rem;line-height:1.2}
+
+/* promise */
+.promise{text-align:center;background:var(--mist)}
+.promise h2{margin-bottom:1rem}
+.promise p{max-width:32rem;margin:0 auto 1.2rem}
+.btn{font-family:inherit;font-size:1.1rem;border:0;border-radius:99px;padding:.9rem 2rem;background:var(--plum);color:var(--paper);cursor:pointer;transition:transform .2s}
+.btn:hover{transform:scale(1.05)}
+#heart{min-height:4rem;font-size:1.9rem;color:var(--rose);margin-top:1.5rem}
+footer{text-align:center;padding:3rem 1rem;font-size:1.6rem;color:var(--plum)}
+
+@media (prefers-reduced-motion:reduce){.beads span{animation:none}html{scroll-behavior:auto}.snap{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div>
+    <p class="hand">a goodbye, for</p>
+    <h1>Miss Model<i>Anisha Thakur</i></h1>
+    <div class="beads" aria-hidden="true">
+      <span style="--i:0;--c:#d9778f"></span><span style="--i:1;--c:#c9a24b"></span>
+      <span style="--i:2;--c:#9c7bb8"></span><span style="--i:3;--c:#d9778f"></span>
+      <span style="--i:4;--c:#c9a24b"></span><span style="--i:5;--c:#9c7bb8"></span>
+      <span style="--i:6;--c:#d9778f"></span>
+    </div>
+    <p class="sub">Four years went by in the blink of an eye. This page is my thank-you for the letter and the bracelet.</p>
+    <a class="down hand" href="#letter">read my letter ↓</a>
+  </div>
+</header>
+
+<section id="letter">
+  <div class="wrap">
+    <h2>For you, Anisha</h2>
+    <article class="letter">
+      <p class="to hand">Dear Miss Model,</p>
+      <p>4 years went by in a blink of an eye. I came with no expectations of any kind of friendships, and yes, I really thought I would not miss anyone. But the memories of all our laughter will always be with me.</p>
+      <p>I don’t know what I can call you, either a close friend or just a friend. I am very happy about the gift, and I am writing this full of emotions, maybe because it’s the first time anyone apart from Yasu has gifted me something.</p>
+      <p>I wish you the best for your future, may you achieve everything you’ve desired.</p>
+      <p>And lastly, next year please trip kar hi lete hain, photo hi nahi mil rahi saath wali (hehe).</p>
+      <p>Love you more. You have always been a good friend to me, and I’ll always cherish our laughter and good memories, along with the bad ones.</p>
+      <p>Lastly, thank you ❤️</p>
+      <p class="sign hand">Yours, always</p>
+    </article>
+  </div>
+</section>
+
+<section class="song" aria-labelledby="song-h">
+  <div class="wrap">
+    <div class="vinyl" aria-hidden="true"><b></b></div>
+    <h2 id="song-h">Our song</h2>
+    <p class="hand">“Best Friend” by Rex Orange County</p>
+    <audio id="bf" controls preload="none" src="media/best-friend.mp3"></audio>
+    <p class="note"><a href="https://www.youtube.com/results?search_query=Rex+Orange+County+Best+Friend" target="_blank" rel="noopener">Can’t hear it? Play it on YouTube</a></p>
+  </div>
+</section>
+
+<section aria-labelledby="mem">
+  <h2 id="mem" class="wrap" style="text-align:center">Little pieces of these years</h2>
+  <div class="gallery">
+    <figure class="snap"><img src="media/photo1.jpg" alt="Birthday celebration with friends and balloons" loading="lazy"><figcaption class="hand">birthday chaos</figcaption></figure>
+    <figure class="snap"><img src="media/photo2.jpg" alt="Two nurses holding a baby in the ward" loading="lazy"><figcaption class="hand">ward days</figcaption></figure>
+    <figure class="snap"><video src="media/video1.mp4" controls preload="metadata" playsinline></video><figcaption class="hand">press play</figcaption></figure>
+    <figure class="snap"><img src="media/photo3.jpg" alt="View over a hill town and river" loading="lazy"><figcaption class="hand">the view</figcaption></figure>
+    <figure class="snap"><img src="media/photo4.jpg" alt="Smiling portrait on a bench" loading="lazy"><figcaption class="hand">that smile</figcaption></figure>
+    <figure class="snap"><img src="media/photo5.jpg" alt="Smiling in a pink kurti" loading="lazy"><figcaption class="hand">pink kurti</figcaption></figure>
+    <figure class="snap"><img src="media/photo6.jpg" alt="Standing in front of a colourful market stall" loading="lazy"><figcaption class="hand">market walk</figcaption></figure>
+    <figure class="snap"><img src="media/photo7.jpg" alt="Four friends in white coats saluting" loading="lazy"><figcaption class="hand">salute!</figcaption></figure>
+    <figure class="snap"><video src="media/video2.mp4" controls preload="metadata" playsinline></video><figcaption class="hand">another one</figcaption></figure>
+    <figure class="snap"><img src="media/photo8.jpg" alt="Playful photo with heart filters" loading="lazy"><figcaption class="hand">baby girl mode</figcaption></figure>
+    <figure class="snap"><img src="media/photo9.jpg" alt="Laughing in a green sweater outside" loading="lazy"><figcaption class="hand">sunny day</figcaption></figure>
+    <figure class="snap"><img src="media/photo10.jpg" alt="Selfie with two friends" loading="lazy"><figcaption class="hand">selfie squad</figcaption></figure>
+    <figure class="snap"><img src="media/photo11.jpg" alt="Two friends with red hair" loading="lazy"><figcaption class="hand">red hair era</figcaption></figure>
+  </div>
+</section>
+
+<section class="promise">
+  <div class="wrap">
+    <h2>One last thing</h2>
+    <p>Next year, a trip. A real one, with photos of both of us in the same frame.</p>
+    <button class="btn" id="pinky" type="button">Pinky promise</button>
+    <div id="heart" class="hand" aria-live="polite"></div>
+  </div>
+</section>
+
+<footer class="hand">Thank you for everything, Miss Model. ❤️</footer>
+
+<script>
+const h=document.getElementById('heart');
+document.getElementById('pinky').addEventListener('click',()=>{
+  h.textContent='Promise made. See you on the trip! ❤️';
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  for(let i=0;i<14;i++){
+    const s=document.createElement('span');
+    s.textContent='❤';
+    s.style.cssText=`position:fixed;left:${30+Math.random()*40}vw;bottom:25vh;font-size:${14+Math.random()*22}px;color:var(--rose);pointer-events:none;transition:transform 1.6s ease-out,opacity 1.6s;opacity:1`;
+    document.body.appendChild(s);
+    requestAnimationFrame(()=>{s.style.transform=`translate(${(Math.random()-.5)*200}px,-${150+Math.random()*250}px)`;s.style.opacity=0});
+    setTimeout(()=>s.remove(),1700);
+  }
+});
+</script>
+</body>
+</html>
